@@ -1,6 +1,7 @@
 package com.example.leavedatetime.controller;
 
 import com.example.leavedatetime.entity.WorkingDayRequest;
+import com.example.leavedatetime.entity.WorkingDayResponse;
 import com.example.leavedatetime.service.WorkingDayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ public class WorkingDayController {
     private WorkingDayService workingDayService;
 
     @PostMapping(value = "/count-end-date")
-    public ResponseEntity<?> countEndDate(@RequestBody WorkingDayRequest request){
+    public ResponseEntity<WorkingDayResponse> countEndDate(@RequestBody WorkingDayRequest request) {
         return new ResponseEntity<>(workingDayService.countEndDate(request),
                 HttpStatus.OK);
     }
